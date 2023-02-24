@@ -1,11 +1,21 @@
 import { FaEdit } from "react-icons/fa"
 import { AiFillDelete } from "react-icons/ai"
+import axios from "axios"
 
 const TutorialList = ({ tutorials, getTutorials }) => {
   const deleteTutorial = async (id) => {
     const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials"
     try {
       await axios.delete(`${BASE_URL}/${id}/`)
+    } catch (error) {
+      console.log(error)
+    }
+    getTutorials()
+  }
+  const editTutorial = async ({ id, title, description }) => {
+    const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials"
+    try {
+      await axios.put(`${BASE_URL}/${id}/`, { title, description })
     } catch (error) {
       console.log(error)
     }
