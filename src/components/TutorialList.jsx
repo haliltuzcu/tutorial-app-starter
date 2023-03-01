@@ -53,6 +53,7 @@ const TutorialList = ({ tutorials, getTutorials }) => {
                     size={22}
                     type="button"
                     className="text-danger "
+                    onClick={() => deleteTutorial(id)}
                   />
                 </td>
               </tr>
